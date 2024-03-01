@@ -47,7 +47,7 @@ def shift_letter(char, key):
 #Shifts the user_message var by the number of spots right that the User entered in the Key var
 shifted_text = shift_text(user_message, key)
 #Prints the output
-print("Shifted text:", shifted_text)
+print("The output of your string in Caesar Cipher with a Key of " + str(key) + " is:", shifted_text)
 
 # Stops program from closing automatically and allows User to initiate by pressing Enter
 input("Press Enter to exit...")
