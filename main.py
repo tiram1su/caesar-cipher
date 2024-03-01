@@ -1,3 +1,6 @@
+def shift_text(text, key):
+    return ''.join(shift_letter(char, key) for char in text)
+
 #This section is regarding the message that needs to be encrypted
 while True:
 	#Requesting what message the user would like encrypted
@@ -30,3 +33,21 @@ while True:
 	else:
 		print("This is not a valid integer.")
 
+def shift_letter(char, key):
+	#Makes sure that any single character in the string is from the alphabet
+    if char.isalpha():
+        base = ord('a') if char.islower() else ord('A')
+        #Determines how far to shift each letter based on the Key var
+        shifted_char = chr(((ord(char) - base + key) % 26) + base)
+        return shifted_char
+    else:
+    	#Returns the variable if it is not from the alphabet and does not do anything with it or change it
+        return char
+
+#Shifts the user_message var by the number of spots right that the User entered in the Key var
+shifted_text = shift_text(user_message, key)
+#Prints the output
+print("Shifted text:", shifted_text)
+
+# Stops program from closing automatically and allows User to initiate by pressing Enter
+input("Press Enter to exit...")
